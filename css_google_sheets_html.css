@@ -1,0 +1,51 @@
+/* Spreadsheet Table */
+.scrollable-container {
+    overflow: auto;
+    max-height: 350px;
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #spreadsheet {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #spreadsheet th, #spreadsheet td {
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 6px;
+    min-width: 50px;
+    max-width: 80px;
+    height: 25px;
+    font-size: 12px;
+  }
+  
+  #spreadsheet th {
+    background-color: #4CAF50; 
+    color: white;
+    font-weight: bold;
+  }
+  
+  #spreadsheet td {
+    background-color: white;
+  }
+  
+  #spreadsheet tr:nth-child(even) td {
+    background-color: #f9f9f9;
+  }
+  
+  #spreadsheet td[contenteditable="true"] {
+    cursor: text;
+  }
+  
+  #spreadsheet th, #spreadsheet td {
+    border-radius: 4px; 
+    transition: background-color 0.3s ease; 
+  }
+  
+  #spreadsheet td:hover {
+    background-color: #f0f8ff; 
+  }
+  
