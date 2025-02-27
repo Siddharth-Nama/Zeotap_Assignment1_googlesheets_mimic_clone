@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siddharth Nama Google sheets clone</title>
+    <title>Siddharth Nama Google_sheets clone</title>
 </head>
 <body>
+    <div class="mainheading">Siddharth Nama Assigment - Web Application Mimicking Google Sheets</div>
+    <div class="toolbar">
+      <button onclick="saveFile()">Save</button>
+      <button onclick="loadFile()">Load</button>
+      <button onclick="applyFormat('bold')">Bold</button>
+      <button onclick="applyFormat('italic')">Italic</button>
+      <button onclick="applyFormat('underline')">Underline</button>
+      <button>Text Color <input type="color" onchange="applyColor(this.value)"></button>
+    </div>
+    
+    <!-- Controls Section -->
+    <div class="controls">
+        <label for="col-select">Select Column for Operation:</label>
+        <input type="text" id="col-select" placeholder="e.g. A, B, C" />
+  
+        <label for="row-start">Row Start:</label>
+        <input type="number" id="row-start" placeholder="Start Row" />
+  
+        <label for="row-end">Row End:</label>
+        <input type="number" id="row-end" placeholder="End Row" />
+  
+  
+        <div>
+          <button onclick="performDataQuality('trim')">TRIM</button>
+          <button onclick="performDataQuality('upper')">UPPER</button>
+          <button onclick="performDataQuality('lower')">LOWER</button>
+          <button onclick="performDataQuality('removeDuplicates')">REMOVE DUPLICATES</button>
+          <button onclick="performFindAndReplace()">FIND & REPLACE</button>
+          
+        </div>
+      </div>
+  
+
     <!-- Spreadsheet Table -->
     <div class="scrollable-container">
         <table id="spreadsheet">
