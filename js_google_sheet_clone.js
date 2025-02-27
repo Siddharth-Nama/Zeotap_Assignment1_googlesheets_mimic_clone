@@ -343,3 +343,111 @@ const drawChart = (labels, values) => {
 };
 
 
+const addColumn = () => {
+    const spreadsheet = document.getElementById('spreadsheet');
+    const thead = spreadsheet.querySelector('thead tr');
+    const colCount = thead.childElementCount;
+  
+    const th = document.createElement('th');
+    th.textContent = String.fromCharCode(64 + colCount);
+    thead.appendChild(th);
+  
+    const rows = spreadsheet.querySelectorAll('tbody tr');
+    rows.forEach(row => {
+      const cell = document.createElement('td');
+      cell.contentEditable = true;
+      row.appendChild(cell);
+    });
+  };
+  
+  const deleteColumn = () => {
+    const spreadsheet = document.getElementById('spreadsheet');
+    const thead = spreadsheet.querySelector('thead tr');
+    const colCount = thead.childElementCount;
+  
+    if (colCount > 1) {
+      thead.removeChild(thead.lastChild);
+  
+      const rows = spreadsheet.querySelectorAll('tbody tr');
+      rows.forEach(row => {
+        row.removeChild(row.lastChild);
+      });
+    }
+  };
+  
+ const resizeColumn = () => {
+    const table = document.getElementById("spreadsheet");
+    const headerCells = table.querySelectorAll("thead th");
+
+    headerCells.forEach((header, index) => {
+        if (index === 0) return; // Skip first empty header cell
+
+        const resizer = document.createElement("div");
+        resizer.style.width = "5px";
+        resizer.style.height = "100%";
+        resizer.style.position = "absolute";
+        resizer.style.right = "0";
+        resizer.style.top = "0";
+        resizer.style.cursor = "col-resize";
+        resizer.style.background = "rgba(0, 0, 0, 0.2)";
+
+        header.style.position = "relative";
+        header.appendChild(resizer);
+
+        let startX, startWidth;
+
+        resizer.addEventListener("mousedown", (event) => {
+            event.preventDefault();
+            startX = event.clientX;
+            startWidth = header.offsetWidth;
+
+            const onMouseMove = (moveEvent) => {
+                const newWidth = startWidth + (moveEvent.clientX - startX);
+                header.style.width = `${newWidth}px`;
+
+                // Resize corresponding column cells
+                table.querySelectorAll("tbody tr").forEach(row => {
+                    const cell = row.children[index]; // Match column index
+                    if (cell) {
+                        cell.style.width = `${newWidth}px`;
+                    }
+                });
+            };
+
+            const onMouseUp = () => {
+                document.removeEventListener("mousemove", onMouseMove);
+                document.removeEventListener("mouseup", onMouseUp);
+            };
+
+            document.addEventListener("mousemove", onMouseMove);
+            document.addEventListener("mouseup", onMouseUp);
+        });
+    });
+};
+
+let selectedCell = null; // Store selected cell
+
+// Function to select a cell when clicked
+document.addEventListener('click', (event) => {
+    if (event.target.tagName === 'TD') {
+        selectedCell = event.target;
+    }
+});
+
+function applyColor(color) {
+    if (selectedCell) {
+        selectedCell.style.color = color;
+    } else {
+        alert('Select a cell to apply the color.');
+    }
+}
+
+
+  
+  // Initialize the spreadsheet on page load
+  document.addEventListener("DOMContentLoaded", () => {
+    initializeSpreadsheet(); // Initialize the table
+    resizeColumn(); // Enable column resizing
+    resizeRow();
+});
+
