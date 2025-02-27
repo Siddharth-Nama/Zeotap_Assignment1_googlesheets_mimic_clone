@@ -1,96 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siddharth Nama Google_sheets clone</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siddharth   Assignment - Google Spreadsheet</title>
+  <link rel="stylesheet" href="css_google_sheets_html.css">
+
 </head>
 <body>
-    <div class="container">
-        <div class="mainheading"> Web Application Mimicking Google Sheets</div>
-        <div class="toolbar">
-          <button onclick="saveFile()">Save</button>
-          <button onclick="loadFile()">Load</button>
-          <button onclick="applyFormat('bold')">Bold</button>
-          <button onclick="applyFormat('italic')">Italic</button>
-          <button onclick="applyFormat('underline')">Underline</button>
-          <button>Text Color <input type="color" onchange="applyColor(this.value)"></button>
-        </div>
-    
-        <!-- Controls Section -->
-        <div class="controls">
-          <label for="col-select">Select Column for Operation:</label>
-          <input type="text" id="col-select" placeholder="e.g. A, B, C" />
-    
-          <label for="row-start">Row Start:</label>
-          <input type="number" id="row-start" placeholder="Start Row" />
-    
-          <label for="row-end">Row End:</label>
-          <input type="number" id="row-end" placeholder="End Row" />
-    
-    
-          <div>
-            <button onclick="performDataQuality('trim')">TRIM</button>
-            <button onclick="performDataQuality('upper')">UPPER</button>
-            <button onclick="performDataQuality('lower')">LOWER</button>
-            <button onclick="performDataQuality('removeDuplicates')">REMOVE DUPLICATES</button>
-            <button onclick="performFindAndReplace()">FIND & REPLACE</button>
-            
-          </div>
-        </div>
-    
-        <!-- Mathematical Functions and Chart Operations Section -->
-        <div class="math-chart-operations">
-          <div class="math-functions">
-            <button onclick="performMathFunction('sum')">SUM</button>
-            <button onclick="performMathFunction('average')">AVERAGE</button>
-            <button onclick="performMathFunction('max')">MAX</button>
-            <button onclick="performMathFunction('min')">MIN</button>
-            <button onclick="performMathFunction('count')">COUNT</button>
-          </div>
-            <!-- Result Display Section -->
-        <div class="result-display" id="result-display">
-          <!-- Results will be displayed here -->Result
-        </div>
-          <!-- Chart Operations (Placeholder for future chart-related functions) -->
-          <div class="chart-functions">
-            <button onclick="generateChart()">Generate Chart</button>
-          </div>
-        </div>
-    
-        <!-- Formula Bar  
-        <div class="formula-bar">
-          <input type="text" id="formula-bar" placeholder="Enter formula or function" />
-        </div>
-         -->
-        <!-- Row and Column Management Section -->
-        <div class="row-column-management">
-          <button onclick="addRow()">Add Row</button>
-          <button onclick="deleteRow()">Delete Row</button>
-          <button onclick="resizeRow()">Resize Row</button>
-    
-          <button onclick="addColumn()">Add Column</button>
-          <button onclick="deleteColumn()">Delete Column</button>
-          <button onclick="resizeColumn()">Resize Column</button>
-        </div>
-        
-        <!-- Spreadsheet Table -->
-        <div class="scrollable-container">
-          <table id="spreadsheet">
-            <thead>
-              <tr>
-                <th></th>
-                <!-- Column headers will be dynamically generated here -->
-              </tr>
-            </thead>
-            <tbody>
-              <!-- Rows will be dynamically generated here -->
-            </tbody>
-          </table>
-        </div>
+  
+  <div class="container">
+    <div class="mainheading">Siddharth  Web Application Mimicking Google Sheets</div>
+    <div class="toolbar">
+      <button onclick="saveFile()">Save</button>
+      <button onclick="loadFile()">Load</button>
+      <button onclick="applyFormat('bold')">Bold</button>
+      <button onclick="applyFormat('italic')">Italic</button>
+      <button onclick="applyFormat('underline')">Underline</button>
+      <button>Text Color <input type="color" onchange="applyColor(this.value)"></button>
     </div>
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For data visualization -->
-    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+    <!-- Controls Section -->
+    <div class="controls">
+      <label for="col-select">Select Column for Operation:</label>
+      <input type="text" id="col-select" placeholder="e.g. A, B, C" />
+
+      <label for="row-start">Row Start:</label>
+      <input type="number" id="row-start" placeholder="Start Row" />
+
+      <label for="row-end">Row End:</label>
+      <input type="number" id="row-end" placeholder="End Row" />
+
+
+      <div>
+        <button onclick="performDataQuality('trim')">TRIM</button>
+        <button onclick="performDataQuality('upper')">UPPER</button>
+        <button onclick="performDataQuality('lower')">LOWER</button>
+        <button onclick="performDataQuality('removeDuplicates')">REMOVE DUPLICATES</button>
+        <button onclick="performFindAndReplace()">FIND & REPLACE</button>
+        
+      </div>
+    </div>
+
+    <!-- Mathematical Functions and Chart Operations Section -->
+    <div class="math-chart-operations">
+      <div class="math-functions">
+        <button onclick="performMathFunction('sum')">SUM</button>
+        <button onclick="performMathFunction('average')">AVERAGE</button>
+        <button onclick="performMathFunction('max')">MAX</button>
+        <button onclick="performMathFunction('min')">MIN</button>
+        <button onclick="performMathFunction('count')">COUNT</button>
+      </div>
+        <!-- Result Display Section -->
+    <div class="result-display" id="result-display">
+      <!-- Results will be displayed here -->Result
+    </div>
+      <!-- Chart Operations (Placeholder for future chart-related functions) -->
+      <div class="chart-functions">
+        <button onclick="generateChart()">Generate Chart</button>
+      </div>
+    </div>
+
+    <!-- Formula Bar  
+    <div class="formula-bar">
+      <input type="text" id="formula-bar" placeholder="Enter formula or function" />
+    </div>
+     -->
+    <!-- Row and Column Management Section -->
+    <div class="row-column-management">
+      <button onclick="addRow()">Add Row</button>
+      <button onclick="deleteRow()">Delete Row</button>
+      <button onclick="resizeRow()">Resize Row</button>
+
+      <button onclick="addColumn()">Add Column</button>
+      <button onclick="deleteColumn()">Delete Column</button>
+      <button onclick="resizeColumn()">Resize Column</button>
+    </div>
+    
+    <!-- Spreadsheet Table -->
+    <div class="scrollable-container">
+      <table id="spreadsheet">
+        <thead>
+          <tr>
+            <th></th>
+            <!-- Column headers will be dynamically generated here -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows will be dynamically generated here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="js_google_sheet_clone.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For data visualization -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
 </body>
 </html>

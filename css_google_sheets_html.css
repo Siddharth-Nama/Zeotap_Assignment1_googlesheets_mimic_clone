@@ -1,0 +1,263 @@
+/* General Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f6f5f7, #eef0f4);
+    min-height: 100vh;
+    color: #333;
+}
+
+/* Main Heading */
+.mainheading {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(90deg, #2575fc, #6a11cb);
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Container */
+.container {
+    margin: 10px auto;
+    max-width: 90%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Toolbar */
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.toolbar button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: none;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.toolbar button:hover {
+    background: linear-gradient(90deg, #ff4b2b, #ff416c);
+    transform: scale(1.05);
+}
+
+/* Controls Section */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.controls label, .controls input, .controls button {
+    font-size: 14px;
+}
+
+.controls input, .controls button {
+    border-radius: 6px;
+    padding: 8px;
+    border: 1px solid #007bff;
+    background-color: #f0f8ff;
+    transition: all 0.3s ease-in-out;
+}
+
+.controls button:hover, .controls input:hover {
+    background-color: #e0f2ff;
+}
+
+/* Spreadsheet Table */
+.scrollable-container {
+    overflow: auto;
+    max-height: 400px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#spreadsheet {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#spreadsheet th, #spreadsheet td {
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 8px;
+    min-width: 60px;
+    max-width: 100px;
+    height: 30px;
+    font-size: 14px;
+}
+
+#spreadsheet th {
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: white;
+    font-weight: bold;
+}
+
+#spreadsheet td {
+    background-color: white;
+}
+
+#spreadsheet tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+#spreadsheet td[contenteditable="true"] {
+    cursor: text;
+}
+
+#spreadsheet td:hover {
+    background-color: #e0f2ff;
+}
+
+/* Math & Chart Operations */
+.math-chart-operations {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.math-chart-operations button {
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #ff8a00, #e52e71);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.math-chart-operations button:hover {
+    background: linear-gradient(90deg, #e52e71, #ff8a00);
+    transform: scale(1.05);
+}
+
+/* Formula Bar */
+.formula-bar {
+    margin-bottom: 10px;
+}
+
+.formula-bar input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #007bff;
+    background-color: #f0f8ff;
+    transition: all 0.3s ease-in-out;
+}
+
+.formula-bar input:hover {
+    background-color: #e0f2ff;
+}
+
+/* Row & Column Management */
+.row-column-management {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.row-column-management button {
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.row-column-management button:hover {
+    background: linear-gradient(90deg, #2a5298, #1e3c72);
+    transform: scale(1.05);
+}
+
+/* Result Display */
+.result-display {
+    width: 240px;
+    border: 1px solid #ccc;
+    padding: 12px;
+    margin-top: 14px;
+    background-color: #f9f9f9;
+    min-height: 60px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    float: left;
+    margin-right: 20px;
+}
+
+.result-display h4 {
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.result-display p {
+    color: #007bff;
+    font-size: 14px;
+}
+
+/* Resize Handles */
+.resize-handle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 6px;
+    height: 100%;
+    cursor: col-resize;
+    background-color: transparent;
+}
+
+.row-resize-handle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    cursor: row-resize;
+    background-color: transparent;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .toolbar, .math-chart-operations, .row-column-management {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .scrollable-container {
+        max-height: 250px;
+    }
+
+    .formula-bar input {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
