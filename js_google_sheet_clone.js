@@ -25,25 +25,45 @@ const initializeSpreadsheet = () => {
       // Attach event listener for resizing
       makeColumnResizable(th, i);
   }
-  // Generate rows with columns
-  for (let i = 1; i <= 10; i++) {
-    const row = document.createElement('tr');
-    const headerCell = document.createElement('td');
-    headerCell.textContent = i; // Row number
+    
+  
+    // Generate rows with columns
+    for (let i = 1; i <= 10; i++) {
+      const row = document.createElement('tr');
+      const headerCell = document.createElement('td');
+      headerCell.textContent = i; // Row number
 
-     // Create row resize handle
-     const rowResizeHandle = document.createElement('div');
-     rowResizeHandle.className = 'row-resize-handle';
-     headerCell.appendChild(rowResizeHandle);
-     makeRowResizable(row, i);
-     row.appendChild(headerCell);
-
-    for (let j = 0; j < 10; j++) {
-      const cell = document.createElement('td');
-      cell.contentEditable = true;
-      row.appendChild(cell);
+       // Create row resize handle
+       const rowResizeHandle = document.createElement('div');
+       rowResizeHandle.className = 'row-resize-handle';
+       headerCell.appendChild(rowResizeHandle);
+       makeRowResizable(row, i);
+       row.appendChild(headerCell);
+  
+      for (let j = 0; j < 10; j++) {
+        const cell = document.createElement('td');
+        cell.contentEditable = true;
+        row.appendChild(cell);
+      }
+  
+      tbody.appendChild(row);
     }
-
-    tbody.appendChild(row);
-  }
-}
+  };
+  
+  const getSelectedCells = () => {
+    const col = document.getElementById('col-select').value.toUpperCase();
+    const rowStart = parseInt(document.getElementById('row-start').value, 10);
+    const rowEnd = parseInt(document.getElementById('row-end').value, 10);
+    const colIndex = col.charCodeAt(0) - 65;
+  
+    const cells = [];
+    for (let i = rowStart; i <= rowEnd; i++) {
+      const row = document.querySelector(`#spreadsheet tbody tr:nth-child(${i})`);
+      if (row) {
+        const cell = row.children[colIndex + 1];
+        if (cell) cells.push(cell);
+      }
+    }
+  
+    return cells;
+  };
